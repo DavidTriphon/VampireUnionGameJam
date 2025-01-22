@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dylccakxjiplk"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_6fuim"]
+[ext_resource type="PackedScene" uid="uid://dpvelod2qxs7i" path="res://scenes/player.tscn" id="2_munpp"]
+[ext_resource type="PackedScene" uid="uid://dlduiva8n53xt" path="res://scenes/bullet.tscn" id="4_f3cks"]
+[ext_resource type="PackedScene" uid="uid://cgyqaavc2t8yq" path="res://scenes/enemy.tscn" id="5_lgwvs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_416kq"]
+albedo_color = Color(0, 0.513726, 0, 1)
+
+[node name="Game" type="Node"]
+script = ExtResource("1_6fuim")
+
+[node name="Player" parent="." instance=ExtResource("2_munpp")]
+motion_mode = 1
+SPEED = 15.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+size = Vector3(50, 2, 50)
+material = SubResource("StandardMaterial3D_416kq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, 0.12941, 0.482963, -0.5, 0.224144, 0.836516, 3.34e-09, -0.965926, 0.258819, 0, 16, 0)
+sky_mode = 1
+
+[node name="bullet" parent="." instance=ExtResource("4_f3cks")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2, 0, 0)
+direction = Vector3(20, 0, 0)
+
+[node name="Enemy" parent="." instance=ExtResource("5_lgwvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)

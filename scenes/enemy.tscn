@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgyqaavc2t8yq"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_8hu3a"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_q8so1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_io48a"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Enemy" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_8hu3a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_q8so1")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+material = SubResource("StandardMaterial3D_io48a")
