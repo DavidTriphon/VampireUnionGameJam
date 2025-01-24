@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8dhbt4ucrpac"]
+
+[ext_resource type="Script" path="res://scripts/attack_area.gd" id="1_mxtqn"]
+
+[node name="AttackArea" type="Area3D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_mxtqn")
+
+[connection signal="area_entered" from="." to="." method="on_area_entered"]
