@@ -32,4 +32,6 @@ fov = 40.8
 wait_time = 0.5
 autostart = true
 
+[node name="InvTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="FiringTimer" to="." method="fire_bullet"]

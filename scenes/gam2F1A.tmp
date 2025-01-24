@@ -12,8 +12,6 @@ albedo_color = Color(0, 0.513726, 0, 1)
 [node name="Game" type="Node"]
 script = ExtResource("1_6fuim")
 
-[node name="ExpBar" parent="." instance=ExtResource("5_ixyn0")]
-
 [node name="Player" parent="." instance=ExtResource("2_munpp")]
 motion_mode = 1
 SPEED = 15.0
@@ -33,3 +31,6 @@ direction = Vector3(20, 0, 0)
 
 [node name="Enemy" parent="." instance=ExtResource("5_lgwvs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+SPEED = null
+
+[node name="ExpBar" parent="." instance=ExtResource("5_ixyn0")]
