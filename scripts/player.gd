@@ -2,11 +2,15 @@ extends CharacterBody3D
 class_name Player
 
 @export var SPEED = 5.0
-@export var bullet_speed = 20
 
-var bullet_scene = preload("res://scenes/bullet.tscn")
+signal direction_changed(new_direction)
 
-var last_direction: Vector3 = Vector3(1, 0, 0)
+var last_direction: Vector3 = Vector3(1, 0, 0):
+	set(value):
+		last_direction = value
+		direction_changed.emit(value)
+	get:
+		return last_direction
 
 func _ready():
 	pass
@@ -25,11 +29,3 @@ func _physics_process(delta: float) -> void:
 		velocity.z = 0
 
 	move_and_slide()
-
-func fire_bullet():
-	print(bullet_scene)
-	var bullet = bullet_scene.instantiate()
-	print(bullet)
-	bullet.position = self.position
-	bullet.direction = last_direction.normalized() * bullet_speed
-	get_tree().root.add_child(bullet)

@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z = 0
 
 	move_and_slide()
-	
+
 func die():
 	var exp_node = get_node("/root/Game/ExpBar")
 	exp_node.add_exp()

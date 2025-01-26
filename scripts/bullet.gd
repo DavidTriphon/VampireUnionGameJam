@@ -1,14 +1,12 @@
-extends Area3D
+extends CharacterBody3D
 class_name Bullet
 
-@export var direction: Vector3 = Vector3(1,0,0)
+@export var collisions_left = 1
 
 func _physics_process(delta: float) -> void:
-	position += direction * delta
+	move_and_slide()
 
-func _on_body_entered(body: Node3D) -> void:
-	if body is Enemy:
-		body.die()
-	else:
-		print("bullet contacted body that was not an Enemy")
-	queue_free()
+func contacted_hitbox():
+	collisions_left -= 1
+	if collisions_left == 0:
+		queue_free()

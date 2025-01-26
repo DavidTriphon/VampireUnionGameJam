@@ -1,22 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlduiva8n53xt"]
+[gd_scene load_steps=6 format=3 uid="uid://dlduiva8n53xt"]
 
-[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_ukd0n"]
+[ext_resource type="PackedScene" uid="uid://c8dhbt4ucrpac" path="res://scenes/attack_area.tscn" id="1_0wh1a"]
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_hwwos"]
+[ext_resource type="Material" uid="uid://dq1qblmk1364w" path="res://resources/mats/yellow.tres" id="2_0ufgc"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gdr70"]
-albedo_color = Color(1, 1, 0, 1)
+[sub_resource type="SphereShape3D" id="SphereShape3D_7kjtk"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_5i1fl"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_jfdpm"]
 
-[node name="bullet" type="Area3D"]
+[node name="bullet" type="CharacterBody3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-collision_layer = 4
-collision_mask = 2
-script = ExtResource("1_ukd0n")
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-material = SubResource("StandardMaterial3D_gdr70")
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_hwwos")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_5i1fl")
+shape = SubResource("SphereShape3D_7kjtk")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+material = ExtResource("2_0ufgc")
+
+[node name="AttackArea" parent="." instance=ExtResource("1_0wh1a")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
+shape = SubResource("SphereShape3D_jfdpm")
+
+[connection signal="hit_something" from="AttackArea" to="." method="contacted_hitbox"]
