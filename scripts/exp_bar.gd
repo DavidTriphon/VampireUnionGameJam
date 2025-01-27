@@ -1,37 +1,17 @@
 extends ProgressBar
+class_name ExpBar
 
-var level_exp_list = [15, 25, 45, 70]
-var current_exp_goal = 0
+signal levelled_up()
 
-@export var player_exp = 0
-var player_level = 0
+func set_exp_goal(val: int):
+	max_value = val
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-func add_exp():
-	player_exp += 1 ## add exp
-	max_value = level_exp_list[current_exp_goal]
-	value = player_exp
-	print("exp is " + str(player_exp))
+func add_exp(to_add=1):
+	value += to_add ## add exp
+	print("exp is " + str(value))
 	if value >= max_value: ## if the bar is filled, the player has leveled up
 		level_up()
 
 func level_up():
-	current_exp_goal += 1 ## increase what the player should aim for next
-	player_level = current_exp_goal
-	player_exp = 0 ## reset the current exp
-	value = 0
-	if current_exp_goal == 1:
-		pass
-		## first upgrade
-	if current_exp_goal == 2:
-		pass
-		## second upgrade
-	if current_exp_goal == 3:
-		pass 
-		## third upgrade
-	if current_exp_goal == 4:
-		pass 
-		## this is where the game would end
+	value -= max_value ## reset the current exp and carryover spare exp
+	levelled_up.emit()

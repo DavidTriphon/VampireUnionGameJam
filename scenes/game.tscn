@@ -1,16 +1,84 @@
-[gd_scene load_steps=7 format=3 uid="uid://dylccakxjiplk"]
+[gd_scene load_steps=22 format=3 uid="uid://dylccakxjiplk"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_6fuim"]
+[ext_resource type="Script" path="res://scripts/resources/weapon_profile.gd" id="2_7efeg"]
 [ext_resource type="PackedScene" uid="uid://dpvelod2qxs7i" path="res://scenes/player.tscn" id="2_munpp"]
-[ext_resource type="PackedScene" uid="uid://dlduiva8n53xt" path="res://scenes/bullet.tscn" id="4_f3cks"]
-[ext_resource type="PackedScene" path="res://scenes/exp_bar.tscn" id="5_ixyn0"]
+[ext_resource type="Script" path="res://scripts/resources/melee_data.gd" id="3_ypk4f"]
+[ext_resource type="Script" path="res://scripts/resources/bullet_data.gd" id="4_qnv3d"]
+[ext_resource type="Script" path="res://scripts/resources/shoot_data.gd" id="4_v2j24"]
+[ext_resource type="PackedScene" uid="uid://cd0d7ojlihcus" path="res://scenes/exp_bar.tscn" id="5_ixyn0"]
 [ext_resource type="PackedScene" uid="uid://cgyqaavc2t8yq" path="res://scenes/enemy.tscn" id="5_lgwvs"]
+
+[sub_resource type="Resource" id="Resource_36hii"]
+script = ExtResource("3_ypk4f")
+cooldown = 1.0
+damage = 1
+both = false
+
+[sub_resource type="Resource" id="Resource_vrsk4"]
+script = ExtResource("2_7efeg")
+melee_data = SubResource("Resource_36hii")
+
+[sub_resource type="Resource" id="Resource_yarvs"]
+script = ExtResource("3_ypk4f")
+cooldown = 1.0
+damage = 1
+both = true
+
+[sub_resource type="Resource" id="Resource_bk8jw"]
+script = ExtResource("2_7efeg")
+melee_data = SubResource("Resource_yarvs")
+
+[sub_resource type="Resource" id="Resource_32bcn"]
+script = ExtResource("3_ypk4f")
+cooldown = 1.0
+damage = 1
+both = true
+
+[sub_resource type="Resource" id="Resource_r5qrk"]
+script = ExtResource("4_qnv3d")
+damage = 1
+speed = 20.0
+hits = 1
+
+[sub_resource type="Resource" id="Resource_v3rum"]
+script = ExtResource("4_v2j24")
+cooldown = 1.0
+bullet_data = SubResource("Resource_r5qrk")
+
+[sub_resource type="Resource" id="Resource_6w4rr"]
+script = ExtResource("2_7efeg")
+melee_data = SubResource("Resource_32bcn")
+shoot_data = SubResource("Resource_v3rum")
+
+[sub_resource type="Resource" id="Resource_4qehi"]
+script = ExtResource("3_ypk4f")
+cooldown = 1.0
+damage = 1
+both = true
+
+[sub_resource type="Resource" id="Resource_68wpp"]
+script = ExtResource("4_qnv3d")
+damage = 1
+speed = 30.0
+hits = 2
+
+[sub_resource type="Resource" id="Resource_shg3n"]
+script = ExtResource("4_v2j24")
+cooldown = 0.5
+bullet_data = SubResource("Resource_68wpp")
+
+[sub_resource type="Resource" id="Resource_xhk1a"]
+script = ExtResource("2_7efeg")
+melee_data = SubResource("Resource_4qehi")
+shoot_data = SubResource("Resource_shg3n")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_416kq"]
 albedo_color = Color(0, 0.513726, 0, 1)
 
 [node name="Game" type="Node"]
 script = ExtResource("1_6fuim")
+weapon_levels = Array[ExtResource("2_7efeg")]([SubResource("Resource_vrsk4"), SubResource("Resource_bk8jw"), SubResource("Resource_6w4rr"), SubResource("Resource_xhk1a")])
 
 [node name="ExpBar" parent="." instance=ExtResource("5_ixyn0")]
 
@@ -27,8 +95,7 @@ sky_mode = 1
 motion_mode = 1
 SPEED = 15.0
 
-[node name="bullet" parent="." instance=ExtResource("4_f3cks")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2, 0, 0)
-
 [node name="Enemy" parent="." instance=ExtResource("5_lgwvs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[connection signal="levelled_up" from="ExpBar" to="." method="level_up"]

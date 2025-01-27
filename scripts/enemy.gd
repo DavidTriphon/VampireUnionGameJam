@@ -24,7 +24,4 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func die():
-	var exp_node = get_node("/root/Game/ExpBar")
-	exp_node.add_exp()
-	#print("exp node is " + str(exp_node))
 	queue_free()

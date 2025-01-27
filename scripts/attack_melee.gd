@@ -1,4 +1,5 @@
 extends Node3D
+class_name AttackMelee
 
 @export var last_dir_is_right: bool = true
 @export var is_attacking_both: bool = false
@@ -8,6 +9,14 @@ extends Node3D
 @onready var attack_area_left: AttackArea = $AttackAreaLeft
 @onready var csg_left: CSGCylinder3D = $AttackAreaLeft/CSGLeft
 @onready var visibility_timer: Timer = $VisibilityTimer
+@onready var attack_timer: Timer = $AttackTimer
+
+func with_data(data: MeleeData) -> AttackMelee:
+	is_attacking_both = data.both
+	attack_timer.wait_time = data.cooldown
+	attack_area_left.damage = data.damage
+	attack_area_right.damage = data.damage
+	return self
 
 func direction_listener(direction: Vector3):
 	# axis of left/right is the X axis

@@ -1,9 +1,12 @@
 extends CharacterBody3D
 class_name Player
 
+signal direction_changed(new_direction)
+
 @export var SPEED = 5.0
 
-signal direction_changed(new_direction)
+@onready var attack_melee: AttackMelee = $AttackMelee
+@onready var attack_shoot: AttackShoot = $AttackShoot
 
 var last_direction: Vector3 = Vector3(1, 0, 0):
 	set(value):
@@ -11,9 +14,6 @@ var last_direction: Vector3 = Vector3(1, 0, 0):
 		direction_changed.emit(value)
 	get:
 		return last_direction
-
-func _ready():
-	pass
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
@@ -29,3 +29,19 @@ func _physics_process(delta: float) -> void:
 		velocity.z = 0
 
 	move_and_slide()
+
+func set_weapons(weapon_profile: WeaponProfile):
+	# a lack of data for a weapon implies that weapon is disabled for this preset
+	# melee
+	if weapon_profile.melee_data != null:
+		attack_melee.with_data(weapon_profile.melee_data)
+		attack_melee.set_process_mode(Node.PROCESS_MODE_INHERIT)
+	else:
+		attack_melee.set_process_mode(Node.PROCESS_MODE_DISABLED)
+
+	# shooting
+	if weapon_profile.shoot_data != null:
+		attack_shoot.with_data(weapon_profile.shoot_data)
+		attack_shoot.set_process_mode(Node.PROCESS_MODE_INHERIT)
+	else:
+		attack_shoot.set_process_mode(Node.PROCESS_MODE_DISABLED)

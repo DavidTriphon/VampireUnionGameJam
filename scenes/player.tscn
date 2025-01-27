@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpvelod2qxs7i"]
+[gd_scene load_steps=10 format=3 uid="uid://dpvelod2qxs7i"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3f8b8"]
 [ext_resource type="PackedScene" uid="uid://dqhs26xg6toe2" path="res://scenes/health.tscn" id="2_g43kt"]
 [ext_resource type="PackedScene" uid="uid://jr1gvi8eeihh" path="res://scenes/attack_melee.tscn" id="2_mg35g"]
 [ext_resource type="PackedScene" uid="uid://bewqxhsfn7dgw" path="res://scenes/hit_area.tscn" id="3_wv8i5"]
+[ext_resource type="PackedScene" uid="uid://crqfmq65suhg6" path="res://scenes/attack_shoot.tscn" id="5_2tq8v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmuum"]
 albedo_color = Color(0.0175423, 0.417473, 0.838655, 1)
@@ -46,4 +47,7 @@ shape = SubResource("CylinderShape3D_qsv6v")
 
 [node name="AttackMelee" parent="." instance=ExtResource("2_mg35g")]
 
+[node name="AttackShoot" parent="." instance=ExtResource("5_2tq8v")]
+
 [connection signal="direction_changed" from="." to="AttackMelee" method="direction_listener"]
+[connection signal="direction_changed" from="." to="AttackShoot" method="direction_listener"]
