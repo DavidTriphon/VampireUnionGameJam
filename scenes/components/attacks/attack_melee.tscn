@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://jr1gvi8eeihh"]
+
+[ext_resource type="Script" path="res://scripts/attack_melee.gd" id="1_ncht5"]
+[ext_resource type="PackedScene" uid="uid://c8dhbt4ucrpac" path="res://scenes/components/attack_area.tscn" id="1_v63yj"]
+[ext_resource type="Material" uid="uid://dq1qblmk1364w" path="res://resources/mats/yellow.tres" id="3_1bosl"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mx11v"]
+
+[node name="AttackMelee" type="Node3D"]
+script = ExtResource("1_ncht5")
+
+[node name="AttackAreaLeft" parent="." instance=ExtResource("1_v63yj")]
+collision_mask = 2
+damage = 1
+hit_on_enter = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackAreaLeft"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -1, 0, 0)
+shape = SubResource("CapsuleShape3D_mx11v")
+
+[node name="CSGLeft" type="CSGCylinder3D" parent="AttackAreaLeft"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1, 0, 0)
+visible = false
+height = 1.0
+material = ExtResource("3_1bosl")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="AttackAreaLeft/CSGLeft"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 2.18557e-08, -0.5, 0)
+material = ExtResource("3_1bosl")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="AttackAreaLeft/CSGLeft"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.18557e-08, 0.5, 0)
+material = ExtResource("3_1bosl")
+
+[node name="AttackAreaRight" parent="." instance=ExtResource("1_v63yj")]
+collision_mask = 2
+damage = 1
+hit_on_enter = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackAreaRight"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1, 0, 0)
+shape = SubResource("CapsuleShape3D_mx11v")
+
+[node name="CSGRight" type="CSGCylinder3D" parent="AttackAreaRight"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1, 0, 0)
+visible = false
+height = 1.0
+material = ExtResource("3_1bosl")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="AttackAreaRight/CSGRight"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 2.18557e-08, -0.5, 0)
+material = ExtResource("3_1bosl")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="AttackAreaRight/CSGRight"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.18557e-08, 0.5, 0)
+material = ExtResource("3_1bosl")
+
+[node name="AttackTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="VisibilityTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="timeout" from="AttackTimer" to="." method="attack"]
+[connection signal="timeout" from="VisibilityTimer" to="AttackAreaLeft/CSGLeft" method="set_visible" binds= [false]]
+[connection signal="timeout" from="VisibilityTimer" to="AttackAreaRight/CSGRight" method="set_visible" binds= [false]]

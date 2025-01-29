@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dq2yg4cf3f32c"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_f53j8"]
+[ext_resource type="PackedScene" uid="uid://dqhs26xg6toe2" path="res://scenes/components/health.tscn" id="2_o1qqd"]
+[ext_resource type="PackedScene" uid="uid://bewqxhsfn7dgw" path="res://scenes/components/hit_area.tscn" id="3_wh58x"]
+[ext_resource type="SpriteFrames" uid="uid://by0wia8b3p2td" path="res://anims/res/leech_anim.tres" id="4_0ty77"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_q8so1"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fw5t0"]
+
+[node name="Vampire" type="CharacterBody3D"]
+transform = Transform3D(2.4606, 0, 0, 0, 2.4606, 0, 0, 0, 2.4606, 0, 0, 0)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_f53j8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_q8so1")
+
+[node name="Health" parent="." instance=ExtResource("2_o1qqd")]
+max_health = 2
+
+[node name="HitArea" parent="." node_paths=PackedStringArray("health") instance=ExtResource("3_wh58x")]
+collision_layer = 2
+health = NodePath("../Health")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea"]
+shape = SubResource("CylinderShape3D_fw5t0")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.183822, 0, 0, 0, 0.129981, 0.129981, 0, -0.129981, 0.129981, 0.00372075, 0, -0.00269328)
+texture_filter = 1
+sprite_frames = ExtResource("4_0ty77")
+autoplay = "default"
+frame_progress = 0.425644
+
+[connection signal="dead" from="Health" to="." method="die"]

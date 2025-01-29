@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl1htxnjpuds0"]
+
+[ext_resource type="PackedScene" uid="uid://cud0kiqm4st2q" path="res://models/Small-root-asset.glb" id="1_76fev"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xvwg1"]
+size = Vector3(3.81055, 0.894287, 0.5)
+
+[node name="ThornsSmall" type="StaticBody3D"]
+
+[node name="Small-root-asset" parent="." instance=ExtResource("1_76fev")]
+transform = Transform3D(0.01152, 0, 0, 0, 0.01152, 0, 0, 0, 0.01152, -0.313929, -0.497127, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_xvwg1")

@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://cihbc7lcw2uqo"]
+
+[ext_resource type="PackedScene" uid="uid://o7psen8th1l2" path="res://models/Altar-asset-true.glb" id="1_ci73k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bdbik"]
+size = Vector3(6.4375, 13.8891, 6.49475)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vi3ln"]
+size = Vector3(1.62988, 2.37207, 13.3291)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uukly"]
+radius = 1.0
+height = 9.18228
+
+[node name="Altar" type="StaticBody3D"]
+
+[node name="Altar-asset-true" parent="." instance=ExtResource("1_ci73k")]
+transform = Transform3D(0.155775, 0, 0, 0, 0.155775, 0, 0, 0, 0.155775, 7.15005, -15.3619, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.303223, 6.92254, 0.0994263)
+shape = SubResource("BoxShape3D_bdbik")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32504, 7.25413, 0)
+shape = SubResource("BoxShape3D_vi3ln")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.306729, -0.950801, 0.0435296, 0.95173, 0.306929, -0.00218759, -0.0112805, 0.0420994, 0.99905, -2.2039, 5.59915, 5.49383)
+shape = SubResource("CapsuleShape3D_uukly")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.306488, -0.950702, -0.0472309, 0.95173, 0.306929, -0.00218758, 0.0165763, -0.0442806, 0.998882, -2.84447, 5.59915, -5.53477)
+shape = SubResource("CapsuleShape3D_uukly")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.147184, -0.276276, 0.949741, 0.941573, -0.333229, 0.0489827, 0.302949, 0.901461, 0.309179, 2.12979, 7.78631, -9.31774)
+shape = SubResource("CapsuleShape3D_uukly")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.0345686, 0.140575, 0.989466, 0.946543, 0.322329, -0.0127252, -0.320723, 0.936132, -0.144203, 1.70715, 7.78631, 9.36468)
+shape = SubResource("CapsuleShape3D_uukly")

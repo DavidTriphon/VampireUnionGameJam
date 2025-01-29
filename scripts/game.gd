@@ -1,7 +1,12 @@
 extends Node
 class_name Game
 
-@onready var enemy_scene = preload("res://scenes/enemy.tscn")
+const BAT = preload("res://scenes/entities/bat.tscn")
+const LEECH = preload("res://scenes/entities/leech.tscn")
+const VAMPIRE = preload("res://scenes/entities/vampire.tscn")
+
+const ENEMIES = [BAT, LEECH, VAMPIRE]
+
 @onready var player: Player = $Player
 @onready var exp_bar: ExpBar = $ExpBar
 
@@ -31,7 +36,7 @@ func init_level():
 		exp_bar.set_exp_goal(exp_level_goals[player_level])
 
 func spawn_enemy():
-	var enemy = enemy_scene.instantiate()
+	var enemy = ENEMIES.pick_random().instantiate()
 	var offset = Vector2(spawn_distance, 0).rotated(randf_range(-PI, PI))
 	var offset3 = Vector3(offset.x, 0, offset.y)
 	enemy.position = player.position + offset3

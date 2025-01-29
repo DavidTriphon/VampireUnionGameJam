@@ -1,12 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://dylccakxjiplk"]
+[gd_scene load_steps=22 format=3 uid="uid://dylccakxjiplk"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_6fuim"]
 [ext_resource type="Script" path="res://scripts/resources/weapon_profile.gd" id="2_7efeg"]
-[ext_resource type="PackedScene" uid="uid://dpvelod2qxs7i" path="res://scenes/player.tscn" id="2_munpp"]
+[ext_resource type="PackedScene" uid="uid://dpvelod2qxs7i" path="res://scenes/entities/player.tscn" id="2_munpp"]
 [ext_resource type="Script" path="res://scripts/resources/melee_data.gd" id="3_ypk4f"]
 [ext_resource type="Script" path="res://scripts/resources/bullet_data.gd" id="4_qnv3d"]
 [ext_resource type="Script" path="res://scripts/resources/shoot_data.gd" id="4_v2j24"]
-[ext_resource type="PackedScene" uid="uid://cd0d7ojlihcus" path="res://scenes/exp_bar.tscn" id="5_ixyn0"]
+[ext_resource type="PackedScene" uid="uid://cd0d7ojlihcus" path="res://scenes/components/exp_bar.tscn" id="5_ixyn0"]
+[ext_resource type="PackedScene" uid="uid://cihbc7lcw2uqo" path="res://scenes/objects/altar.tscn" id="8_uwwcb"]
 
 [sub_resource type="Resource" id="Resource_36hii"]
 script = ExtResource("3_ypk4f")
@@ -93,5 +94,8 @@ sky_mode = 1
 [node name="Player" parent="." instance=ExtResource("2_munpp")]
 motion_mode = 1
 SPEED = 15.0
+
+[node name="Altar" parent="." instance=ExtResource("8_uwwcb")]
+transform = Transform3D(-1.4754e-08, 0, 0.337532, 0, 0.337532, 0, -0.337532, 0, -1.4754e-08, -0.0408053, -1, -8.85421)
 
 [connection signal="levelled_up" from="ExpBar" to="." method="level_up"]

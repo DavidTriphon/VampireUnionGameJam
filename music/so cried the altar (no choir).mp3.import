@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://by6ypcetn8g46"
+path="res://.godot/imported/so cried the altar (no choir).mp3-902d3698ac96f142f669e4970b8b88ad.mp3str"
+
+[deps]
+
+source_file="res://music/so cried the altar (no choir).mp3"
+dest_files=["res://.godot/imported/so cried the altar (no choir).mp3-902d3698ac96f142f669e4970b8b88ad.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

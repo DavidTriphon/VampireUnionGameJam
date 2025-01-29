@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bebn25g8bnxjd"
+path.s3tc="res://.godot/imported/Big-Thorns-Assets-right_Root-baked-texture.png-a72f78fe68363a6c98a3c9a8e8f6cb01.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "6b1d40251be2165f7192135ff637f391"
+}
+
+[deps]
+
+source_file="res://models/Big-Thorns-Assets-right_Root-baked-texture.png"
+dest_files=["res://.godot/imported/Big-Thorns-Assets-right_Root-baked-texture.png-a72f78fe68363a6c98a3c9a8e8f6cb01.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

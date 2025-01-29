@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://7oc153p1pmqy"]
+
+[ext_resource type="PackedScene" uid="uid://cc5drwju7uwb4" path="res://models/Rock-asset.glb" id="1_nwum5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xoyva"]
+height = 1.20873
+radius = 1.00411
+
+[node name="Rock" type="StaticBody3D"]
+
+[node name="Rock-asset" parent="." instance=ExtResource("1_nwum5")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.985414, 0, 0.170175, 0, 1, 0, -0.170175, 0, 0.985414, -0.0221836, 0, 0.0787377)
+shape = SubResource("CylinderShape3D_xoyva")
