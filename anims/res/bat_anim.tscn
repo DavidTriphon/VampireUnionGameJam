@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://h72bj6v7os0"]
+
+[ext_resource type="SpriteFrames" uid="uid://cnrb77lpn5r7f" path="res://anims/res/bat_anim.tres" id="1_xenwd"]
+
+[node name="bat_anim" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_xenwd")
+autoplay = "default"
+frame_progress = 0.824823

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dylccakxjiplk"]
+[gd_scene load_steps=21 format=3 uid="uid://dylccakxjiplk"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_6fuim"]
 [ext_resource type="Script" path="res://scripts/resources/weapon_profile.gd" id="2_7efeg"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://scripts/resources/bullet_data.gd" id="4_qnv3d"]
 [ext_resource type="Script" path="res://scripts/resources/shoot_data.gd" id="4_v2j24"]
 [ext_resource type="PackedScene" uid="uid://cd0d7ojlihcus" path="res://scenes/exp_bar.tscn" id="5_ixyn0"]
-[ext_resource type="PackedScene" uid="uid://cgyqaavc2t8yq" path="res://scenes/enemy.tscn" id="5_lgwvs"]
 
 [sub_resource type="Resource" id="Resource_36hii"]
 script = ExtResource("3_ypk4f")
@@ -94,8 +93,5 @@ sky_mode = 1
 [node name="Player" parent="." instance=ExtResource("2_munpp")]
 motion_mode = 1
 SPEED = 15.0
-
-[node name="Enemy" parent="." instance=ExtResource("5_lgwvs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 
 [connection signal="levelled_up" from="ExpBar" to="." method="level_up"]

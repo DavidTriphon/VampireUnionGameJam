@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://4txxesaeimdu"]
+
+[ext_resource type="Texture2D" uid="uid://drtwfgtfpmnme" path="res://anims/frames/Vampire_Monster/Vampire_Monster_0000.png" id="1_3ffgt"]
+[ext_resource type="Texture2D" uid="uid://cjlh5dogvle4o" path="res://anims/frames/Vampire_Monster/Vampire_Monster_0001.png" id="2_16kif"]
+[ext_resource type="Texture2D" uid="uid://6lhlyjdrssil" path="res://anims/frames/Vampire_Monster/Vampire_Monster_0002.png" id="3_b0p0k"]
+[ext_resource type="Texture2D" uid="uid://qksduy3p7frr" path="res://anims/frames/Vampire_Monster/Vampire_Monster_0003.png" id="4_5jcm6"]
+[ext_resource type="Texture2D" uid="uid://bd2rpxmihcs4h" path="res://anims/frames/Vampire_Monster/Vampire_Monster_0004.png" id="5_8wh7p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w5yka"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3ffgt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_16kif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b0p0k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5jcm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8wh7p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="VampAnim" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_w5yka")
+autoplay = "default"
+frame_progress = 0.00852266

@@ -1,0 +1,47 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://cnrb77lpn5r7f"]
+
+[ext_resource type="Texture2D" uid="uid://cwadnftqbetuc" path="res://anims/frames/Vampire_Bat/Vampire_Bat_0000.png" id="1_dnj0p"]
+[ext_resource type="Texture2D" uid="uid://cggfcpd5d2di3" path="res://anims/frames/Vampire_Bat/Vampire_Bat_0001.png" id="2_vlu0l"]
+[ext_resource type="Texture2D" uid="uid://cpxhkb85iwk2p" path="res://anims/frames/Vampire_Bat/Vampire_Bat_0002.png" id="3_woaib"]
+[ext_resource type="Texture2D" uid="uid://7t6rohw4wpk5" path="res://anims/frames/Vampire_Bat/Vampire_Bat_0003.png" id="4_j8jfg"]
+[ext_resource type="Texture2D" uid="uid://bd56ilf5u2meu" path="res://anims/frames/Vampire_Bat_Sippy/Vampire_Bat_Sippy_0000.png" id="5_68ekp"]
+[ext_resource type="Texture2D" uid="uid://d1feks8rkarua" path="res://anims/frames/Vampire_Bat_Sippy/Vampire_Bat_Sippy_0001.png" id="6_rc73s"]
+[ext_resource type="Texture2D" uid="uid://3yg4v2u8fwit" path="res://anims/frames/Vampire_Bat_Sippy/Vampire_Bat_Sippy_0002.png" id="7_t8hnu"]
+[ext_resource type="Texture2D" uid="uid://la4wm5fxe1e2" path="res://anims/frames/Vampire_Bat_Sippy/Vampire_Bat_Sippy_0003.png" id="8_8gt27"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dnj0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vlu0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_woaib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j8jfg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_68ekp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rc73s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_t8hnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8gt27")
+}],
+"loop": true,
+"name": &"sippy",
+"speed": 8.0
+}]

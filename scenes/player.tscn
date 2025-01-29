@@ -5,10 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://jr1gvi8eeihh" path="res://scenes/attack_melee.tscn" id="2_mg35g"]
 [ext_resource type="PackedScene" uid="uid://bewqxhsfn7dgw" path="res://scenes/hit_area.tscn" id="3_wv8i5"]
 [ext_resource type="PackedScene" uid="uid://crqfmq65suhg6" path="res://scenes/attack_shoot.tscn" id="5_2tq8v"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmuum"]
-albedo_color = Color(0.0175423, 0.417473, 0.838655, 1)
-emission = Color(1, 1, 1, 1)
+[ext_resource type="SpriteFrames" uid="uid://dt2a5lqauul3u" path="res://anims/res/apollyon_anim.tres" id="6_npcbb"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ovjuc"]
 
@@ -22,9 +19,6 @@ ambient_light_color = Color(1, 1, 1, 1)
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_mask = 3
 script = ExtResource("1_3f8b8")
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
-material = SubResource("StandardMaterial3D_dmuum")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_ovjuc")
@@ -48,6 +42,13 @@ shape = SubResource("CylinderShape3D_qsv6v")
 [node name="AttackMelee" parent="." instance=ExtResource("2_mg35g")]
 
 [node name="AttackShoot" parent="." instance=ExtResource("5_2tq8v")]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.361726, 0, 0, 0, 0.255779, 0.255779, 0, -0.255779, 0.255779, 0, 0, 0)
+texture_filter = 1
+sprite_frames = ExtResource("6_npcbb")
+animation = &"s1_run"
+autoplay = "s1_idle"
 
 [connection signal="direction_changed" from="." to="AttackMelee" method="direction_listener"]
 [connection signal="direction_changed" from="." to="AttackShoot" method="direction_listener"]
