@@ -1,46 +1,35 @@
-[gd_scene load_steps=10 format=3 uid="uid://4txxesaeimdu"]
+[gd_scene load_steps=7 format=3 uid="uid://4txxesaeimdu"]
 
-[ext_resource type="Texture2D" uid="uid://beh1ly8avylw5" path="res://anims/frames/Vampire_Enemy/Vampire_Enemy__0000.png" id="1_apmlf"]
-[ext_resource type="Texture2D" uid="uid://b6pu1m5ure1pv" path="res://anims/frames/Vampire_Enemy/Vampire_Enemy__0001.png" id="2_s4l1y"]
-[ext_resource type="Texture2D" uid="uid://djudx14jvfvml" path="res://anims/frames/Vampire_Enemy/Vampire_Enemy__0002.png" id="3_xfdjd"]
-[ext_resource type="Texture2D" uid="uid://tb7gn4fk3ms7" path="res://anims/frames/Vampire_Enemy/Vampire_Enemy__0003.png" id="4_jbmge"]
-[ext_resource type="Texture2D" uid="uid://dyc28k3xxe4mu" path="res://anims/frames/Vampire_Enemy/Vampire_Enemy__0004.png" id="5_njf28"]
-[ext_resource type="Texture2D" uid="uid://cwa0m3mdjvhpu" path="res://anims/frames/Vampire_Enemy/Vampire_Enemy__0005.png" id="6_xwl3v"]
-[ext_resource type="Texture2D" uid="uid://cc4wh1nyyndik" path="res://anims/frames/Vampire_Enemy/Vampire_Enemy__0006.png" id="7_03mpr"]
-[ext_resource type="Texture2D" uid="uid://wecujiocbn71" path="res://anims/frames/Vampire_Enemy/Vampire_Enemy__0007.png" id="8_fs8ru"]
+[ext_resource type="Texture2D" uid="uid://drtwfgtfpmnme" path="res://anims/frames/Vampire_Monster/Vampire_Monster_0000.png" id="1_xiqdj"]
+[ext_resource type="Texture2D" uid="uid://cjlh5dogvle4o" path="res://anims/frames/Vampire_Monster/Vampire_Monster_0001.png" id="2_mj404"]
+[ext_resource type="Texture2D" uid="uid://6lhlyjdrssil" path="res://anims/frames/Vampire_Monster/Vampire_Monster_0002.png" id="3_nydx0"]
+[ext_resource type="Texture2D" uid="uid://qksduy3p7frr" path="res://anims/frames/Vampire_Monster/Vampire_Monster_0003.png" id="4_3267s"]
+[ext_resource type="Texture2D" uid="uid://bd2rpxmihcs4h" path="res://anims/frames/Vampire_Monster/Vampire_Monster_0004.png" id="5_etrqc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w5yka"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_apmlf")
+"texture": ExtResource("1_xiqdj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_s4l1y")
+"texture": ExtResource("2_mj404")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_xfdjd")
+"texture": ExtResource("3_nydx0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_jbmge")
+"texture": ExtResource("4_3267s")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_njf28")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_xwl3v")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_03mpr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_fs8ru")
+"texture": ExtResource("5_etrqc")
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 8.0
 }]
 
 [node name="VampAnim" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_w5yka")
-frame_progress = 0.323852
+autoplay = "default"
+frame_progress = 0.359144
