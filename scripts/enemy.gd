@@ -10,23 +10,21 @@ func _physics_process(delta: float) -> void:
 	# Will always move directly towards player character
 	var players = get_tree().get_nodes_in_group("player")
 	var direction := Vector3()
+	position.y = 0
 	if players.size() > 0:
 		var player = players[0]
 		var player_vector: Vector3 = player.position - self.position
-		player_vector.y = 0
 		direction = player_vector.normalized()
 		
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity = direction * SPEED
 		
 		if velocity.x > 0:
 			animated_sprite_3d.flip_h = true
 		elif velocity.x < 0:
 			animated_sprite_3d.flip_h = false
 	else:
-		velocity.x = 0
-		velocity.z = 0
+		velocity = Vector3()
 
 	move_and_slide()
 

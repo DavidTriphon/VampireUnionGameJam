@@ -14,12 +14,13 @@ transform = Transform3D(2.4606, 0, 0, 0, 2.4606, 0, 0, 0, 2.4606, 0, 0, 0)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_y0fja")
+SPEED = 3.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_q8so1")
 
 [node name="Health" parent="." instance=ExtResource("2_43w06")]
-max_health = 2
+max_health = 5
 
 [node name="HitArea" parent="." node_paths=PackedStringArray("health") instance=ExtResource("3_cu2rs")]
 collision_layer = 2
